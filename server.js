@@ -4,13 +4,16 @@ const app = express();
 const apiRoute = require('./routes/api');
 const viewRoute = require('./routes/view');
 
-const PORT = 3001;
+const PORT = process.env.PORT || 3001;
 
 app.use(express.json());
 
-app.use(express.urlencoded({ extended: false }));
+app.use(express.urlencoded({ extended: true }));
 
 app.use(express.static('public'));
+// app.get('/', (req, res) => {
+//     res.sendFile('./public/assets/js/index.js');
+// })
 
 app.use('/api', apiRoute);
 

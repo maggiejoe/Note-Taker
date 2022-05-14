@@ -11,15 +11,12 @@ function readNotes() {
 
 function parseNotes() {
     return readNotes().then(rawNotes => { 
-        // console.log(rawNotes);
         let notesArray = JSON.parse(rawNotes);
-        // console.log(notesArray);
         return notesArray;
     })
 }
 
 router.get('/notes', (req, res) => {
-    // parseNotes();
     parseNotes().then(notesRes => res.json(notesRes));
 });
 

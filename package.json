@@ -20,6 +20,7 @@
   "homepage": "https://github.com/maggiejoe/note-taker#readme",
   "dependencies": {
     "express": "^4.18.1",
+    "util": "^0.12.4",
     "uuid": "^8.3.2"
   }
 }
