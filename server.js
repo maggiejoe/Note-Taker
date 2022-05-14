@@ -11,9 +11,6 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 app.use(express.static('public'));
-// app.get('/', (req, res) => {
-//     res.sendFile('./public/assets/js/index.js');
-// })
 
 app.use('/api', apiRoute);
 
