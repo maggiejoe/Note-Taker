@@ -2,6 +2,7 @@ const router = require('express').Router();
 const fs = require('fs');
 const uniqid = require('uniqid');
 var Notes = require('../db/db.json');
+const path = require('path');
 
 // get placeholder notes from db.json file
 router.get('/notes', (req, res) => {
