@@ -12,15 +12,16 @@ router.get('/notes', (req, res) => {
 
 // post new notes
 router.post('/notes/', (req, res) => {
-    req.body.id = uniqid;
+    req.body.id = uniqid();
     Notes.push(req.body);
-    fs.writeFileSync(path.join(__dirname, '../db/db.json'));
-    JSON.stringify(Notes, null);
+    fs.writeFileSync(path.join(__dirname, '../db/db.json'), JSON.stringify(Notes));
     res.json(Notes);
 });
 
-// router.delete('notes/:id', (req, res) {
-
-// });
+router.delete('notes/:id', (req, res) => {
+    Notes.remove(req.params.id);
+    console.log(`Your Note ${req.params.id} has been deleted`);
+    return Notes;
+});
 
 module.exports = router;
