@@ -1,23 +1,25 @@
 const router = require('express').Router();
-const util = require('util');
 const fs = require('fs');
+const uniqid = require('uniqid');
+var Notes = require('../db/db.json');
 
-const writeFile = util.promisify(fs.writeFile);
-const readFile = util.promisify(fs.readFile);
-
-function readNotes() {
-    return readFile('db/db.json', 'utf-8');
-}
-
-function parseNotes() {
-    return readNotes().then(rawNotes => { 
-        let notesArray = JSON.parse(rawNotes);
-        return notesArray;
-    })
-}
-
+// get placeholder notes from db.json file
 router.get('/notes', (req, res) => {
-    parseNotes().then(notesRes => res.json(notesRes));
+    let notes = Notes;
+    res.json(notes);
 });
+
+// post new notes
+router.post('/notes/', (req, res) => {
+    req.body.id = uniqid;
+    Notes.push(req.body);
+    fs.writeFileSync(path.join(__dirname, '../db/db.json'));
+    JSON.stringify(Notes, null);
+    res.json(Notes);
+});
+
+// router.delete('notes/:id', (req, res) {
+
+// });
 
 module.exports = router;
