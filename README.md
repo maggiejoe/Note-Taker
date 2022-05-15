@@ -9,7 +9,7 @@ Note take is an application designed to take notes for the average business pers
 
 * GitHub Deployment Link: https://maggiejoe.github.io/note-taker/
 * GitHub Repo Link: https://github.com/maggiejoe/note-taker.git
-* Heroku Link: 
+* Heroku Link: https://git.heroku.com/stormy-journey-74714.git
 
 ## Screenshots
 
