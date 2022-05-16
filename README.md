@@ -18,7 +18,7 @@ Below are the mockup photo of what the application should be capable of doing
 ![](./public/assets/images/challenge-1-mockup-img2.png)
 
 Below is a video of the application I put together
-![]()
+![](./public/assets/images/application_video.webm)
 
 # Challenge #11 Criteria
 
