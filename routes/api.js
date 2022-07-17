@@ -6,16 +6,26 @@ const path = require('path');
 
 // get placeholder notes from db.json file
 router.get('/notes', (req, res) => {
-    let notes = Notes;
-    res.json(notes);
+    try {
+        let notes = Notes;
+        res.json(notes);
+    } catch (error) {
+        res.json({ msg: "failed to load notes" });
+    }
+
 });
 
 // post new notes
 router.post('/notes/', (req, res) => {
-    req.body.id = uniqid();
-    Notes.push(req.body);
-    fs.writeFileSync(path.join(__dirname, '../db/db.json'), JSON.stringify(Notes));
-    res.json(Notes);
+    try {
+        req.body.id = uniqid();
+        Notes.push(req.body);
+        fs.writeFileSync(path.join(__dirname, '../db/db.json'), JSON.stringify(Notes));
+        res.json(Notes);
+    } catch (error) {
+        res.json({ msg: "failed to load notes" });
+    }
+
 });
 
 // delete a note
